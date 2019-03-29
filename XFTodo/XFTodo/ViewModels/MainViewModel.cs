@@ -18,9 +18,10 @@ namespace XFTodo.ViewModels
         public MainViewModel(IDataService dataService)
         {
             _dataService = dataService;
-            TodoItems = new ObservableCollection<TodoItem>();
 
+            TodoItems = new ObservableCollection<TodoItem>();
             Task.Run(async () => { await ExecuteRefreshCommand(); });
+
         }
 
         public ObservableCollection<TodoItem> TodoItems { get; set; }
@@ -34,12 +35,16 @@ namespace XFTodo.ViewModels
             {
                 _selectedTodoItem = value;
                 OnPropertyChanged();
+
+                if (_selectedTodoItem == null) return;
+                NavigateToPostDetail();
             }
         }
 
         public ICommand RefreshCommand => new Command(async () => await ExecuteRefreshCommand());
+        public ICommand AddNewTodoItemCommand => new Command(NavigateToPostDetail);
 
-        async Task ExecuteRefreshCommand()
+       public async Task ExecuteRefreshCommand()
         {
             if (IsBusy) return;
             IsBusy = true;
@@ -63,5 +68,14 @@ namespace XFTodo.ViewModels
                 IsBusy = false;
             }
         }
+
+        
+
+        async void NavigateToPostDetail()
+        {
+            await NavigationService.NavigateToAsync<TodoItemViewModel>();
+        }
+
+
     }
 }

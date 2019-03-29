@@ -24,6 +24,7 @@ namespace XFTodo.ViewModels.Base
 
 
             _containerBuilder.RegisterType<MainViewModel>().SingleInstance();
+            _containerBuilder.RegisterType<TodoItemViewModel>();
 
 
 

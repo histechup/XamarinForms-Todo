@@ -9,5 +9,11 @@ namespace XFTodo.Services.DataService
     public interface IDataService
     {
         Task<List<TodoItem>> GetTodoItemsAsync();
+
+        Task<TodoItem> PostTodoItemAsync(TodoItem item);
+
+        Task<bool> PutTodoItemAsync(TodoItem item);
+
+        Task<bool> DeleteTodoItemAsync(long id);
     }
 }

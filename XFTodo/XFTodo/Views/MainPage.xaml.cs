@@ -13,5 +13,11 @@ namespace XFTodo
         {
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            listView.SelectedItem = null;
+            base.OnAppearing();
+        }
     }
 }

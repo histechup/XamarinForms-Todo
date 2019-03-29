@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using XFTodo.ViewModels;
 using XFTodo.ViewModels.Base;
+using XFTodo.Views;
 
 namespace XFTodo.Services.NavigationService
 {
@@ -24,6 +25,7 @@ namespace XFTodo.Services.NavigationService
         private void CreatePageViewModelMappings()
         {
             _mappings.Add(typeof(MainViewModel), typeof(MainPage));
+            _mappings.Add(typeof(TodoItemViewModel), typeof(TodoItemPage));
 
 
         }

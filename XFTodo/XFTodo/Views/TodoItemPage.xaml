@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFTodo.Views.TodoItemPage"
+             Title="{Binding PageTitle}">
+    <ContentPage.Content>
+        <StackLayout Margin="20" VerticalOptions="StartAndExpand">
+            <Label Text="Name" FontSize="Small" Opacity="0.5"/>
+            <Entry Text="{Binding TodoItem.Name}" />
+
+            <Label Text="Is complete" FontSize="Small" Opacity="0.5" Margin="0,20,0,0" />
+            <Switch IsToggled="{Binding TodoItem.IsComplete}" Margin="0,0,0,40" />
+         
+           
+            <Button Text="Save" Command="{Binding SaveCommand}" />
+            <Button Text="Delete" Command="{Binding DeleteCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
